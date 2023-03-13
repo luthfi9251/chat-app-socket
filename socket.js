@@ -1,11 +1,14 @@
+const { Server } = require("socket.io")
 
-const socketServer = (server) => {
-    const io = require("socket.io")(server, {
+const socketServer = (port) => {
+    const io = new Server(port,{
         cors: {
-          origin: "*",
-          methods: ["GET", "POST"],
-        },
-    });
+            origin: "*",
+            methods: ["GET","POST"]
+        }
+    })
+    
+    console.log("socket running on port " + port)
 
     io.on("connection", async (socket) => {
         console.log(`User Connected ${socket.id}`)

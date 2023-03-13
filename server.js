@@ -6,8 +6,8 @@ const {socketServer} = require('./socket')
 const httpServer = createServer(app)
 const PORT = 8000
 
-socketServer(httpServer)
+socketServer(PORT)
 
-httpServer.listen(PORT,()=>{
-    console.log("Socket Listening on port: " + PORT)
-})
+// httpServer.listen(PORT,()=>{
+//     console.log("Socket Listening on port: " + PORT)
+// })
